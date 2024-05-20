@@ -1,12 +1,36 @@
 <?php
 
-    if(isset($_POST['submit']))
-    {
-        include_once('../db/db.php');
-        include_once('../db/functions.php');
-    }
- ?>
 
+  if(isset($_POST['submit']))
+  {
+      include_once('../db/db.php');
+      include_once('../db/functions.php');
+  
+      $account = new FormDb();
+  
+      $User = filter_var(trim($_POST['User']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $subtwt = filter_var(trim($_POST['subtwt']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $link = filter_var(trim($_POST['link']), FILTER_SANITIZE_URL);
+     
+      $singleAcc = $account -> singleAcc($User);
+  
+      if (!empty($singleAcc['User']))
+      {
+          header('location: form.php');
+      }
+      else
+      {
+          $insertAcc = $account -> InsertAcc($User,$subtwt,$link);
+      
+          if($insertAcc == true)
+          {
+              header('location: form.php?sucess');
+          }
+      
+      }   
+  }
+     
+  ?>   
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,13 +43,28 @@
     <link rel ="stylesheet" href="../styles/form.css">
 </head>
 <body>
+
+<?php
+
+if(isset($_GET['exist'])) 
+{
+    print  "<script>  alert('cpf e/ou email ja existentes')</script>";
+
+}
+ if (isset($_GET['sucess']))
+{
+    print "<script> alert('Formulario enviado com sucesso')</script>";
+    header('location: cadCon.php');
+}
+?>  
+
 <header class="cabecalho">
     <button class="voltar" onclick="window.location.href='../index.php'">voltar</button>
         <img class="logo" alt="logo do projeto" src="">
         <nav class="navegacao">
            
-        <a class="cabecalho-menu" href="sobre.php"style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform = 'scale(1.1)';" onmouseout="this.style.transform = 'scale(1)';">
-        Sobre Nós</a>
+        <a class="cabecalho-menu" href="../crud/listTwT.php" style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform = 'scale(1.1)';" onmouseout="this.style.transform = 'scale(1)';">
+       Contas</a>
             <a class= "cabecalho-menu" style= "cursor: default";>|</a>
             <a class= "cabecalho-menu" href="login.php"style="transform: scale(1); transition: transform 0.5s;" onmouseover="this.style.transform = 'scale(1.1)';" onmouseout="this.style.transform = 'scale(1)';">
  Login</a>
@@ -43,7 +82,7 @@
         <fieldset class="grupo">
             <div class="campo" >
                 <label for="user"><strong>user</strong></label>
-                <input type="text" name="user" id="user" >
+                <input type="text" name="User" id="User" >
             </div>
 
             <div class="campo">
@@ -57,7 +96,7 @@
             </div>
         </fieldset>
 
-      <button class="botao" type="submit" name="submit" >Concluir</button>
+      <button class="botao" type="submit" name="submit"  >Concluir</button>
       
     </form>
     </div>

@@ -11,9 +11,9 @@
     <header class="cabecalho">
     <img class="cabecalho-imagem" src="">
         <nav class="cabecalho-menu">
-            <a class="cabecalho-menu-item">Comunidade </a>
+            <a class="cabecalho-menu-item" href="crud/listTwT.php">Contas</a>
             <a class= "cabecalho-menu-item" style= "cursor: default";>|</a>
-            <a class="cabecalho-menu-item">Apoie-nos</a>
+            <a class="cabecalho-menu-item" >Login</a>
         </nav>
     </header>
 

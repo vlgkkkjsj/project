@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
-
-
 *
 {
     text-decoration: none;
@@ -9,7 +7,6 @@
     box-sizing: border-box;
     border: none;
 }
-
 body{
     font-size: 100%;
     background: #E8C2DB;
@@ -29,7 +26,6 @@ body{
     border-radius: 10px;
     border: 2px solid #FFF7EB ;
  }
-
  .cabecalho{
     display: flex;
     flex-direction: row;
@@ -37,7 +33,6 @@ body{
     justify-content: space-around;
     padding: 24px;
  }
-
  .logo
  {
     height: 60px;
@@ -57,7 +52,6 @@ body{
     cursor: pointer;
     margin: 20px;
 }
-
 .voltar
 {
     background-color: #627ABD;
@@ -74,11 +68,9 @@ body{
     position: absolute;
     left: 100px;
 }
-
 .voltar:hover{
     transform:scale(1.1);
 }
-
 .conteudo
  {
     margin-bottom: 190px;
@@ -89,7 +81,6 @@ body{
  {
     font-family: 'Sarala', sans-serif;
     color:#627ABD;
-    margin-left: 15%;
  }
 
  #subtitulo
@@ -103,21 +94,22 @@ body{
  {
     border: 0;
  }
-
 .formulario
 {
     font-family: 'Sarala', sans-serif;
     color: #ffffff;
-    margin-left: 15%;
-    margin-top: 2%;
+    margin: 2% auto; 
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    width: 70%; 
 }
-
 .botao
 {
     background-color:#627ABD;;
-    width: 100px;
-    height: 60px;
+    width: 110px;
+    height: 50px;
     border: none;
     box-shadow: 4px 5px 4px rgba(0,0,0,0.096);
     border-radius: 25px;
@@ -131,44 +123,35 @@ body{
 .botao:hover{
     transform:scale(1.1)
 }
-
-
 input,textarea,select
 {
     border-radius: 5px;
 }
-
 .campo
 {
     margin-bottom: 1em;
 
 }
-
 .campo label{
     margin-bottom: 0.2em;
     color: #627ABD;
     display: block;
     font-size: 1.2em;
 }
-
 .fieldset .grupo .campo{
     float: left;
     margin-right: 1em;
 }
-
 .campo input[type="text"],.campo input[type="email"], .campo input[type="password"]{
     padding: 0.2em;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.096);
     display: block;
     font-size: 1.2em;
-
 }
-
 .campo input:focus
 {
     background: #ffff;
 }
-
 .img-logo-projeto
 {
     position: absolute;
@@ -183,8 +166,6 @@ input,textarea,select
     border-top: 0.4px solid #627ABD;
     padding: 32px;
 }
-
-
 .desenvolvido {
     color: #627ABD;
     font-family: 'Sarala', sans-serif;
@@ -194,5 +175,4 @@ input,textarea,select
     height: 20px;
     flex-direction: column;
     align-items: center;
-
 }
